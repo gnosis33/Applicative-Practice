@@ -7,7 +7,14 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
-}
+  let lowMoonsPlanets = []; 
+  for (let i = 0; i < data.planets.length; i++) {
+    if (data.planets[i].moonsCount < 10 || !data.planets[i].moonsCount) {
+      lowMoonsPlanets.push(data.planets[i].name);
+    };
+  };
+  return lowMoonsPlanets;
+};
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
