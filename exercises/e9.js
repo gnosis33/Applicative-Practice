@@ -6,11 +6,8 @@ import { data } from "../data/data";
 
 export function getEarthData(data) {
   // Your code goes here...
-  for (let i = 0; i < data.planets.length; i++) {
-    if (data.planets[i].id === "earth") {
-      return data.planets[i];
-    };
-  };
+  const earthData = data.planets.filter((planet) => planet.name === "Earth");
+  return earthData.shift();
 };
 
 

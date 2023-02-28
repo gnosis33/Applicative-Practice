@@ -4,13 +4,12 @@ import { data } from "../data/data";
 // Return an array of all Asteroids' names
 // Return example: ['name1', 'name2', ... , 'nameN']
 
+
+
 export function getAsteroidNames(data) {
   // Your code goes here...
-  let asteroids = [];
-  for (let i = 0; i < data.asteroids.length; i++) {
-    asteroids.push(data.asteroids[i].name);
-  };
-  return asteroids;
+  const asteroidNames = data.asteroids.map((asteroid) => asteroid.name);
+  return asteroidNames;
 };
 
 

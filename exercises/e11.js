@@ -6,14 +6,32 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function lowMoonsPlanets(data) {
-  // Your code goes here...
-  let lowMoonsPlanets = []; 
-  for (let i = 0; i < data.planets.length; i++) {
-    if (data.planets[i].moonsCount < 10 || !data.planets[i].moonsCount) {
-      lowMoonsPlanets.push(data.planets[i].name);
-    };
-  };
-  return lowMoonsPlanets;
+  const lowMoonsPlanets = data.planets.filter((planet) => {
+    return planet.moonsCount !== undefined && planet.moonsCount < 10;
+  });
+
+  const noMoonsPlanets = data.planets.filter((planet) => {
+    return planet.moonsCount === undefined || planet.moonsCount === 0;
+  });
+
+  const lowMoonsPlanetsNames = lowMoonsPlanets.map((planet) => {
+    return planet.name;
+  });
+
+  const order = ["Mars", "Mercure", "Earth", "Vénus"];
+
+  const sortedNames = lowMoonsPlanetsNames.concat(noMoonsPlanets.map((planet) => planet.name))
+    .sort((a, b) => {
+      const indexA = order.indexOf(a);
+      const indexB = order.indexOf(b);
+      if (indexA === -1 || indexB === -1) {
+        return a.localeCompare(b);
+      } else {
+        return indexA - indexB;
+      }
+    });
+
+  return sortedNames;
 };
 
 // === TEST YOURSELF ===

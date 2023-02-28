@@ -1,17 +1,14 @@
-import { p } from "vitest/dist/index-5aad25c1";
 import { data } from "../data/data";
 
 // SPACE DATA EXERCISE 1
 // Return an array of all Planets' names
 // Return example: ['name1', 'name2', ... , 'nameN']
 
+
 export function getPlanetNames(data) {
   // Your code here...
-  let planets = [];
-  for (let i = 0; i < data.planets.length; i++) {
-    planets.push(data.planets[i].name);
-  };
-  return planets;
+  const planetNames = data.planets.map((planet) => planet.name);
+  return planetNames;
 };
 
 /* ERROR:  test/e1.test.js [ test/e1.test.js ]
